@@ -18,14 +18,15 @@ $ git config --list
 
 ## 创建一个仓库
 ```
-$ git init .
+$ git init
 ```
 
 ## 克隆一个仓库
 ```
-$ git clone https://github.com/codevampire/xxx
-$ git clone https://github.com/codevampire/xxx myxxx
-$ git clone git://
+$ git clone https://github.com/codevampire/xxx.git
+$ git clone https://github.com/codevampire/xxx.git myxxx
+$ git clone -b branch_name https://github.com/codevampire/xxx.git
+$ git clone git://github.com/codevampire/xxx.git
 $ git clone user@server:path/to/repo.git
 ```
 
@@ -95,6 +96,7 @@ $ git push origin master
 ## 创建分支
 ```
 $ git branch branch_name
+$ git branch new_branch from_branch
 $ git checkout -b branch_name          创建分支并切换分支
 ```
 创建分支命令并不负责切换分支，Git内部维护一个HEAD指针，需要手工挪动HEAD指针到需要的分支上。
@@ -103,6 +105,7 @@ $ git checkout -b branch_name          创建分支并切换分支
 ```
 $ git branch
 $ git branch -v
+$ git branch -a
 $ git branch --merged
 $ git branch --no-merged
 $ git log --decorate --graph --all

@@ -26,3 +26,61 @@ $* 不包括后缀名的当前依赖文件的名字
 all 目标为默认目标，如果不指定则执行all目标，新定义的目标如remove、clean、install等如果没有依赖则认为
 
 ```
+
+## 一个较好的Makefile范本
+```
+CC = gcc
+RM = rm -f
+
+INCLUDES = -I../include
+LFLAGS = -L../lib
+LIBS = -lm
+LDFLAGS = -static $(LFLAGS) $(LIBS)
+
+DEBUGCFLAGS = -O0 -D __DEBUG__ -g
+RELEASECFLAG = -O2
+CFLAGS = -std=c99 -Wall -Wextra $(DEBUGFLAG) $(INCLUDES)
+#CFLAGS = -std=c99 -Wall -Wextra -fPIC $(DEBUGFLAG) $(INCLUDES)
+
+CHEADERS  = $(wildcard include/*.h)
+CCHEADERS = $(wildcard include/*.hpp)
+
+CSRCS  = $(wildcard src/*.c)
+CCSRCS = $(wildcard src/*.cpp)
+
+OBJS = $(CSRCS:.c=.o) $(CCSRCS:.cpp=.o)
+
+EXECUTABLE = program
+
+STATICLIB = program.a
+
+SHAREDLIB = program.so
+
+.PHONY: all clean install libs-static libs
+
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJS)
+    $(CC) $(OBJS) -o $@ $(LDFLAGS)
+
+%.o: %.c $(CHEADERS)
+    $(CC) $(CFLAGS) -c $< -o $@
+
+#%.o: %.cpp $(CCHEADERS)
+#    $(CC) $(CFLAGS) -c $< -o $@
+
+libs-static: $(STATICLIB)
+
+$(STATICLIB): $(OBJS)
+    ar -rcs $@ $(OBJS)
+
+libs: $(SHAREDLIB)
+
+$(SHAREDLIB): $(OBJS)
+    $(CC) $(CFLAGS) -shared -o $@ $<
+
+clean:
+    $(RM) *.o $(EXECUTABLE) *~
+
+install
+```

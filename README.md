@@ -10,3 +10,4 @@
 
 ## 开发工具
 * [Git常用命令](DEV/DEV_Git-shortcut.md)
+* [Makefile及GCC](DEV/DEV_MakeAndCompiler-shortcut.md)

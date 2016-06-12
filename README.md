@@ -7,6 +7,7 @@
 
 ## 应用软件
 * [spf13-vim 快捷键总结](APP/APP_spf13-vim_shortcut.md)
+* [常用Linux运维命令](APP/APP__feq_cmd.md)
 
 ## 开发工具
 * [Git常用命令](DEV/DEV_Git-shortcut.md)

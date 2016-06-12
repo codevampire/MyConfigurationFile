@@ -55,7 +55,8 @@ find /home -type f -mtime +60 | xargs tar -cvfj /tmp/`date '+%d%m%Y'_archive.tar
 -exec   执行相应命令
 -follow 跟随符号链接
 -fstype 指定文件系统类型
--group  指定用户组号
+-group  指定用户组
+-gid    指定用户组号
 -inum   inode号
 -links  文件拥有的链接数量
 -name   文件名模式
@@ -64,8 +65,9 @@ find /home -type f -mtime +60 | xargs tar -cvfj /tmp/`date '+%d%m%Y'_archive.tar
 -nouser 非系统用户文件
 -perm   指定文件具有的权限
 -size   文件大小
--type   文件类型
+-type   文件类型 f d l b c p s
 -user   指定用户
+-uid    指定用户ID
 
 # date
 date +"%Y-%m-%d %H:%M:%S"

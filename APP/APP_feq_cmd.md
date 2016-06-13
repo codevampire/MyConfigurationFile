@@ -72,4 +72,44 @@ find /home -type f -mtime +60 | xargs tar -cvfj /tmp/`date '+%d%m%Y'_archive.tar
 # date
 date +"%Y-%m-%d %H:%M:%S"
 2009-01-01 08:21:41
+
+# cron
+crontab -e
+* * * * * /path_to_command arg1 arg2 ...
+1 Minute      0-59
+2 Hours       0-23
+3 Day         0-31
+4 Month       0-12
+5 Day of week 0-7
+
+可以使用* , - /
+* 任意时间，不做限制
+, 并列时间
+- 指定时间区间，如5-10号每月
+/ 步长，如*/3每隔三天
+
+预定义的宏时间
+@reboot       启动时执行一次
+@yearly       一年执行一次，0 0 1 1 *
+@annually     与@yearly相同
+@monthly      每月执行一次，0 0 1 * *
+@weekly       每周执行一次，0 0 * * 0
+@daily        每天执行一次，0 0 * * *
+@midnight     与daily相同
+@hourly       每小时执行一次，0 * * * *
+
+定义位置
+/etc/crontab
+/etc/cron.d
+/etc/cron.hourly
+/etc/cron.daily
+/etc/cron.weekly
+/etc/cron.monthly
+/var/spool/cron/crontabs
+
+/etc/cron.allow
+/etc/cron.deny
+
+
+
 ```

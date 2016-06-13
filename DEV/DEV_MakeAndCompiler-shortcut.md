@@ -32,15 +32,28 @@ all 目标为默认目标，如果不指定则执行all目标，新定义的目�
 CC = gcc
 RM = rm -f
 
-INCLUDES = -I../include
-LFLAGS = -L../lib
+INCLUDES = -Iinclude
+LFLAGS = -Llib
 LIBS = -lm
-LDFLAGS = -static $(LFLAGS) $(LIBS)
+LDFLAGS = $(LFLAGS) $(LIBS)
+#LDFLAGS = -static $(LFLAGS) $(LIBS)
 
 DEBUGCFLAGS = -O0 -D __DEBUG__ -g
 RELEASECFLAG = -O2
+
+# FOR DEBUG
 CFLAGS = -std=c99 -Wall -Wextra $(DEBUGFLAG) $(INCLUDES)
 #CFLAGS = -std=c99 -Wall -Wextra -fPIC $(DEBUGFLAG) $(INCLUDES)
+
+#CFLAGS = -std=c++11 -Wall -Wextra $(DEBUGFLAG) $(INCLUDES)
+#CFLAGS = -std=c++11 -Wall -Wextra -fPIC $(DEBUGFLAG) $(INCLUDES)
+
+# FOR RELEASE
+#CFLAGS = -std=c99 -Wall -Wextra $(RELEASECFLAG) $(INCLUDES)
+#CFLAGS = -std=c99 -Wall -Wextra -fPIC $(RELEASECFLAG) $(INCLUDES)
+
+#CFLAGS = -std=c++11 -Wall -Wextra $(RELEASECFLAG) $(INCLUDES)
+#CFLAGS = -std=c++11 -Wall -Wextra -fPIC $(RELEASECFLAG) $(INCLUDES)
 
 CHEADERS  = $(wildcard include/*.h)
 CCHEADERS = $(wildcard include/*.hpp)
@@ -52,35 +65,35 @@ OBJS = $(CSRCS:.c=.o) $(CCSRCS:.cpp=.o)
 
 EXECUTABLE = program
 
-STATICLIB = program.a
+STATICLIB = static.a
 
-SHAREDLIB = program.so
+SHAREDLIB = share.so
 
 .PHONY: all clean install libs-static libs
 
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJS)
-    $(CC) $(OBJS) -o $@ $(LDFLAGS)
+	$(CC) $(OBJS) -o $@ $(LDFLAGS)
 
 %.o: %.c $(CHEADERS)
-    $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 #%.o: %.cpp $(CCHEADERS)
-#    $(CC) $(CFLAGS) -c $< -o $@
+#	$(CC) $(CFLAGS) -c $< -o $@
 
 libs-static: $(STATICLIB)
 
 $(STATICLIB): $(OBJS)
-    ar -rcs $@ $(OBJS)
+	ar -rcs $@ $(OBJS)
 
 libs: $(SHAREDLIB)
 
 $(SHAREDLIB): $(OBJS)
-    $(CC) $(CFLAGS) -shared -o $@ $<
+	$(CC) $(CFLAGS) -shared -o $@ $< $(LDFLAGS)
 
 clean:
-    $(RM) *.o $(EXECUTABLE) *~
+	$(RM) *.o $(EXECUTABLE) *~
 
-install
+install:
 ```

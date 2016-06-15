@@ -24,4 +24,5 @@
 1 向Github添加生成的密钥对的公钥
 2 git config --global user.signingkey KeyID # 设置默认使用的密钥的ID
 3 git commit -S -m "somthing" # 在commit时使用-S选项
+4 确保使用密钥的邮件地址与git的user.email相同
 ```

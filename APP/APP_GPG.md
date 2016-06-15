@@ -16,6 +16,6 @@
 
 ## 两个个人公钥
 
-* [个人](gpgkeys/YangWenhan's Key_public.asc)
-* [工作](gpgkeys/YangWenhan's Office Key_public.asc)
+* [个人](gpgkeys/Xei4kau9.personal.public.asc)
+* [工作](gpgkeys/EiX8rooc.office.public.asc)
 

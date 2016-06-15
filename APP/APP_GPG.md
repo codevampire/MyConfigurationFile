@@ -19,3 +19,9 @@
 * [个人](gpgkeys/Xei4kau9.personal.public.asc)
 * [工作](gpgkeys/EiX8rooc.office.public.asc)
 
+## 为Github添加GPG签名认证
+```
+1 向Github添加生成的密钥对的公钥
+2 git config --global user.signingkey KeyID # 设置默认使用的密钥的ID
+3 git commit -S -m "somthing" # 在commit时使用-S选项
+```

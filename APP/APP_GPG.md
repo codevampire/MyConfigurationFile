@@ -26,3 +26,20 @@
 3 git commit -S -m "somthing" # 在commit时使用-S选项
 4 确保使用密钥的邮件地址与git的user.email相同
 ```
+
+## 使用GnuPG
+```
+# 使用AES256加解密
+gpg --cipher-algo AES256 --symmetric file_to_encrypt
+gpg --cipher-algo AES256 -c file_to_encrypt
+
+gpg --output file_decrypted --decrypt encrypted_file
+gpg -o file_decrypted -d encrypted_file
+
+# -sysmetric 指定使用对称加密
+
+# 使用公钥系统加解密
+gpg --output encrypted_file --encrypt --recipient the_other_user_public_key file_to_encrypt
+
+gpg --output decrypted_file --decrypt encrypted_file
+```

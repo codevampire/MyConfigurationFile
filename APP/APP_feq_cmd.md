@@ -110,6 +110,10 @@ crontab -e
 /etc/cron.allow
 /etc/cron.deny
 
+```
 
-
+## SSH反向代理
+```
+$ ssh -nNT user@remoteserver -D proxy_port
+# 之后在浏览器端设置SOCK4/5代理，地址为localhost，端口为设定的端口
 ```

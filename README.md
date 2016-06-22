@@ -4,6 +4,7 @@
 
 ## 操作系统
 * [UBUNTU flashplugin-installer安装失败解决方法](OS/OS_flashplugin-installer_failed_deal_with.md)
+* [OpenVPN配置方法](OS/OS_ConfigurationOfOpenVPN.md)
 
 ## 应用软件
 * [spf13-vim 快捷键总结](APP/APP_spf13-vim_shortcut.md)

@@ -36,6 +36,29 @@ vim +BundleInstall! +BundleClean +q
 <F12>
 ```
 
+## 保存为UTF-8编码
+```
+set fenc=utf-8
+```
+
+## 正确的VIM编码设置方法
+```
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,latin1
+set fileencoding=utf-8
+```
+
+## 替换^M字符 \r
+```
+set ff=unix
+%s#\r##g
+```
+
+## 替换^@字符 \0x00
+```
+%s#[\x00]##g
+```
+
 ## 代码折叠级数:
 ```
 <Leader>F0-F9
@@ -112,7 +135,7 @@ zm 全部折叠
 
 ## 外部命令:
 ```
-:! cmd
+:! cmd %
 :r !cmd 读取运行结果
 :w !cmd 将内容写入命令输入
 ```

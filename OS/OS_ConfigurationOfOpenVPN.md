@@ -33,6 +33,8 @@ $ su -
 # ./build-key-server server_name
 # ./build-dh
 
+(如果设备的性能不好，生成2048位的dh文件将十分耗时，可改为1024位)
+
 # cd keys
 # cp server_name.crt server_name.key ca.crt dh2048.pem /etc/openvpn/
 ```
@@ -83,7 +85,7 @@ verb 3
 # echo 1 > /proc/sys/net/ipv4/ip_forward
 # vim /etc/sysctl.conf
 # 将net.ipv4.ip_forward=1的注释去掉
-# ufw allow 443/udp
+# ufw allow 443/tcp
 # vim /etc/default/ufw
 # 修改DEFAULT_FORWARD_POLICY="ACCEPT"
 # vim /etc/ufw/before.rules

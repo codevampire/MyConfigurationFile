@@ -117,3 +117,8 @@ crontab -e
 $ ssh -nNT user@remoteserver -D proxy_port
 # 之后在浏览器端设置SOCK4/5代理，地址为localhost，端口为设定的端口
 ```
+
+## 关闭syslog来节省var目录的体积
+```
+$ sudo service rsyslog stop && sudo service rsyslog disable
+```

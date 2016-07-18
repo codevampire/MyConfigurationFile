@@ -122,3 +122,8 @@ $ ssh -nNT user@remoteserver -D proxy_port
 ```
 $ sudo service rsyslog stop && sudo service rsyslog disable
 ```
+
+## 使用Curl操作Http Authorization
+```
+$ curl --user name:password site
+```

@@ -127,3 +127,50 @@ $ sudo service rsyslog stop && sudo service rsyslog disable
 ```
 $ curl --user name:password site
 ```
+
+## 踢掉已经挂掉的SSH会话
+```
+# pkill -kill -t pts/n
+```
+
+## 使命令在会话挂掉后依然运行
+```
+nohup command 2>&1 &
+
+ssh user@passwd 'nohup command 2>&1 &'
+
+其它方法可以使用screen或tmux来新建会话，并在会话上去执行程序，如果连接断掉，等再此连接可以重新找到会话。
+```
+
+## tmux使用
+```
+# 创建一个新的指定名称的会话
+tmux new -s SessionName
+# tmux的前缀键，与其它键组合实现功能
+Ctrl+b
+# 更改默认创建的会话的名称
+Ctrl+b $
+# 创建新的窗口
+Ctrl+b c
+# 水平分割窗口
+Ctrl+b %
+# 垂直分割窗口
+Ctrl+b "
+# 退出当前Session
+Ctrl+b d
+# 查看当前tmux服务下的会话列表
+tmux ls
+# 重新打开会话
+tmux a -t session_name
+# 切换窗口
+n 下一个
+p 前一个
+w 列表
+, 重命名
+f 查找
+& 关闭
+# 切换面板
+o 切换
+q 显示编号
+x 关闭
+```

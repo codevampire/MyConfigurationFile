@@ -174,3 +174,8 @@ o 切换
 q 显示编号
 x 关闭
 ```
+
+## 在UBUNTU上使用PPTP
+```
+$ echo nf_conntrack_pptp | sudo tee /etc/modules/pptp-firewall.conf
+```

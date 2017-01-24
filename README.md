@@ -12,6 +12,7 @@
 * [配置sendmail及Thunderbird](APP/APP_sendmail_and_thunderbird.md)
 * [GnuPG的使用](APP/APP_GPG.md)
 * [netcat的使用](APP/APP_netcat.md)
+* [X配置](APP/APP_X.md)
 
 ## 开发工具
 * [Git常用命令](DEV/DEV_Git-shortcut.md)
